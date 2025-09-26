@@ -11,6 +11,8 @@ namespace dramsim3 {
 
 class CPU {
    public:
+    virtual ~CPU() = default; // added: ensure correct destruction through base pointer
+    // make constructor public so derived inherited ctors are callable from main
     CPU(const std::string& config_file, const std::string& output_dir)
         : memory_system_(
               config_file, output_dir,

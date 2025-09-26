@@ -1,0 +1,18 @@
+CMakeLists.txt
+include(CTest)
+enable_testing()
+add_subdirectory(tests)
+
+tests/CMakeLists.txt
+add_executable(hello_test hello_test.cc)
+target_link_libraries(hello_test Catch2::Catch2)
+include(CTest)
+include(Catch)
+
+tests/hello_test.cc
+#define CATCH_CONFIG_MAIN
+#include <catch2/catch.hpp>
+
+TEST_CASE("hello world test") {
+    REQUIRE(1 + 1 == 2);
+}
